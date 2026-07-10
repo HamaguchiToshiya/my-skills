@@ -1,0 +1,8 @@
+{
+  "_note": "却下済み提案。同種の提案を再度出さないための抑制リスト",
+  "rejected": [
+    {"date": "2026-07-11", "skill": "pre-delivery-checklist", "summary": "セクション3にCore Web Vitals計測項目(PageSpeed Insights/3指標)を追加する提案", "reason": "ユーザー判断で見送り"},
+    {"date": "2026-07-11", "skill": "form-implementation", "summary": "送信ボタンをdisabledにしないアンチパターン注記の追加提案", "reason": "ユーザー判断で見送り"},
+    {"date": "2026-07-11", "skill": "code-formatting-lint", "summary": "ESLint v10で.eslintrc形式が完全削除された旨の注記追加提案", "reason": "ユーザー判断で見送り"}
+  ]
+}
