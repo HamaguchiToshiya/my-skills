@@ -1,10 +1,12 @@
 {
   "_note": "手動運用期(2026-07-05〜07-10)の主要収集URL。チャット運用時代のため網羅的ではない",
-  "css-baseline": ["https://web.dev/blog/baseline-digest-may-2026", "https://www.buildmvpfast.com/blog/web-platform-baseline-2026-new-features-browser-support"],
+  "css-baseline": ["https://web.dev/blog/baseline-digest-may-2026", "https://www.buildmvpfast.com/blog/web-platform-baseline-2026-new-features-browser-support", "https://web.dev/baseline/2026"],
   "seo-structured-data": ["https://www.suzukikenichi.com/blog/google-deprecated-faq-rich-result-feature/"],
-  "wordpress-php": ["https://seory.co.jp/php-version/", "https://wpcenter.jp/blog/php-version-upgrade-wordpress/"],
+  "wordpress-php": ["https://seory.co.jp/php-version/", "https://wpcenter.jp/blog/php-version-upgrade-wordpress/", "https://make.wordpress.org/core/2026/05/22/php-support-clarification-2026/"],
   "gsap-animation": ["https://ics.media/entry/220822/"],
   "core-web-vitals": ["https://technical-seo.jp/what-is-inp/"],
   "form-a11y": ["https://noveltyinc.jp/media/nextjs-form-accessibility"],
-  "eslint-prettier": ["https://qiita.com/DaokFrontier/items/86ebfdb6e6e3fa572326"]
+  "eslint-prettier": ["https://qiita.com/DaokFrontier/items/86ebfdb6e6e3fa572326"],
+  "overlay-header": ["https://www.nngroup.com/articles/sticky-headers/", "https://fastcoding.jp/blog/all/ui-ux/scroll-header-css/"],
+  "section-seam": ["https://lovable.dev/guides/scrolling-designs-patterns-when-to-use", "https://withcode.tech/media/webdesign-section-delimitation-summary/"]
 }

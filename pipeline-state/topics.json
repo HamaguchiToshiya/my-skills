@@ -1,14 +1,14 @@
 {
   "topics": [
-    {"id": "css-baseline", "skills": ["coding-standard"], "queries": ["CSS Baseline 2026 newly available features", "CSS 新機能 ブラウザ対応"], "frequency_weeks": 2, "last_run": "2026-07-05"},
+    {"id": "css-baseline", "skills": ["coding-standard"], "queries": ["CSS Baseline 2026 newly available features", "CSS 新機能 ブラウザ対応"], "frequency_weeks": 2, "last_run": "2026-07-20"},
     {"id": "gsap-animation", "skills": ["animation-implementation"], "queries": ["GSAP 更新 バージョン", "Web Animations API 新機能"], "frequency_weeks": 3, "last_run": "2026-07-06"},
     {"id": "form-a11y", "skills": ["form-implementation"], "queries": ["フォーム バリデーション アクセシビリティ 動向", "form validation accessibility"], "frequency_weeks": 4, "last_run": "2026-07-10"},
-    {"id": "wordpress-php", "skills": ["wordpress-development", "wp-maintenance-inspection"], "queries": ["WordPress PHP 最低要件 変更", "ACF 仕様変更 アップデート"], "frequency_weeks": 2, "last_run": "2026-07-06"},
+    {"id": "wordpress-php", "skills": ["wordpress-development", "wp-maintenance-inspection"], "queries": ["WordPress PHP 最低要件 変更", "ACF 仕様変更 アップデート"], "frequency_weeks": 2, "last_run": "2026-07-20"},
     {"id": "seo-structured-data", "skills": ["seo-meta-implementation"], "queries": ["Google 構造化データ サポート終了 変更", "SEO ガイドライン 変更"], "frequency_weeks": 4, "last_run": "2026-07-06"},
     {"id": "eslint-prettier", "skills": ["code-formatting-lint"], "queries": ["ESLint Prettier 新バージョン 変更"], "frequency_weeks": 4, "last_run": "2026-07-10"},
     {"id": "git-workflow", "skills": ["git-workflow"], "queries": ["Git 運用 ベストプラクティス 変化"], "frequency_weeks": 13, "last_run": "2026-07-10", "note": "第3回実行で変化速度が極めて遅いことを確認。四半期周期"},
     {"id": "core-web-vitals", "skills": ["pre-delivery-checklist", "performance-optimization"], "queries": ["Core Web Vitals 指標 変更"], "frequency_weeks": 4, "last_run": "2026-07-10"},
-    {"id": "overlay-header", "skills": ["coding-standard", "design-taste"], "queries": ["透過ヘッダー スクロール 可読性 背景 切り替え", "sticky header scroll state background contrast pattern", "overlay header readability accessibility"], "frequency_weeks": 6, "last_run": "2026-06-01", "note": "2026-07-14 追加。ポートフォリオのFVで透過ヘッダーの可読性が実機で破綻。vaultに関連ノートが0枚だったため"},
-    {"id": "section-seam", "skills": ["design-taste", "coding-standard"], "queries": ["セクション 境界 継ぎ目 背景 つなぎ デザイン", "seamless section transition background scroll web design", "section divider pattern 2026"], "frequency_weeks": 6, "last_run": "2026-06-01", "note": "2026-07-14 追加。FV下端とABOUTの境界で段差・図版の切断が発生。セクション単位のスクショでは原理的に検出できない領域で、vaultにも在庫が0枚だったため"}
+    {"id": "overlay-header", "skills": ["coding-standard", "design-taste"], "queries": ["透過ヘッダー スクロール 可読性 背景 切り替え", "sticky header scroll state background contrast pattern", "overlay header readability accessibility"], "frequency_weeks": 6, "last_run": "2026-07-20", "note": "2026-07-14 追加。ポートフォリオのFVで透過ヘッダーの可読性が実機で破綻。vaultに関連ノートが0枚だったため"},
+    {"id": "section-seam", "skills": ["design-taste", "coding-standard"], "queries": ["セクション 境界 継ぎ目 背景 つなぎ デザイン", "seamless section transition background scroll web design", "section divider pattern 2026"], "frequency_weeks": 6, "last_run": "2026-07-20", "note": "2026-07-14 追加。FV下端とABOUTの境界で段差・図版の切断が発生。セクション単位のスクショでは原理的に検出できない領域で、vaultにも在庫が0枚だったため"}
   ]
 }
