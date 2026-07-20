@@ -2,6 +2,11 @@
 
 <!-- skill-auto-update-pipeline により生成。適用は毎回ユーザー承認済みの変更のみ -->
 
+### 2026-07-20 coding-standard（提案中 / PR: proposal/2026-07-20）
+- 追加: §6「色・コントラスト」に、透過/固定ヘッダーなど背景が動的に変わる要素上のテキストのコントラストを実機（FV〜次セクション通しスクロール）で確認する注記
+- 出典: https://www.nngroup.com/articles/sticky-headers/
+- 承認者: PR レビューにて
+
 ### 2026-07-06 seo-meta-implementation
 - 修正: 構造化データの推奨 `@type` 例から `FAQPage` を除外し、新規実装非推奨の注記を追加（Googleが2026年5月7日にFAQリッチリザルト表示を完全終了）
 - 出典: https://www.suzukikenichi.com/blog/google-deprecated-faq-rich-result-feature/
