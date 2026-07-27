@@ -2,6 +2,11 @@
 
 <!-- skill-auto-update-pipeline により生成。適用は毎回ユーザー承認済みの変更のみ -->
 
+### 2026-07-27 animation-implementation（提案中 / PR: proposal/2026-07-27）
+- 追加: 「実装手段の使い分け」に、CSSスクロール駆動アニメーション（`animation-timeline: scroll()`/`view()`）を単純なスクロール連動の新しい選択肢として追記。Baseline未達（Firefox安定版未対応）のため `coding-standard` のモダンCSS採用ルールに従いフォールバック前提で使う旨、複雑な制御・クロスブラウザ確実性が必要な場合はScrollTriggerを既定とする旨を明記
+- 出典: https://webkit.org/blog/17101/a-guide-to-scroll-driven-animations-with-just-css/ / https://web-platform-dx.github.io/web-features-explorer/features/scroll-driven-animations/
+- 承認者: PR レビューにて
+
 ### 2026-07-20 coding-standard（提案中 / PR: proposal/2026-07-20）
 - 追加: §6「色・コントラスト」に、透過/固定ヘッダーなど背景が動的に変わる要素上のテキストのコントラストを実機（FV〜次セクション通しスクロール）で確認する注記
 - 出典: https://www.nngroup.com/articles/sticky-headers/
