@@ -1,7 +1,7 @@
 {
   "topics": [
     {"id": "css-baseline", "skills": ["coding-standard"], "queries": ["CSS Baseline 2026 newly available features", "CSS 新機能 ブラウザ対応"], "frequency_weeks": 2, "last_run": "2026-07-20"},
-    {"id": "gsap-animation", "skills": ["animation-implementation"], "queries": ["GSAP 更新 バージョン", "Web Animations API 新機能"], "frequency_weeks": 3, "last_run": "2026-07-06"},
+    {"id": "gsap-animation", "skills": ["animation-implementation"], "queries": ["GSAP 更新 バージョン", "Web Animations API 新機能"], "frequency_weeks": 3, "last_run": "2026-07-27"},
     {"id": "form-a11y", "skills": ["form-implementation"], "queries": ["フォーム バリデーション アクセシビリティ 動向", "form validation accessibility"], "frequency_weeks": 4, "last_run": "2026-07-10"},
     {"id": "wordpress-php", "skills": ["wordpress-development", "wp-maintenance-inspection"], "queries": ["WordPress PHP 最低要件 変更", "ACF 仕様変更 アップデート"], "frequency_weeks": 2, "last_run": "2026-07-20"},
     {"id": "seo-structured-data", "skills": ["seo-meta-implementation"], "queries": ["Google 構造化データ サポート終了 変更", "SEO ガイドライン 変更"], "frequency_weeks": 4, "last_run": "2026-07-06"},

@@ -3,7 +3,7 @@
   "css-baseline": ["https://web.dev/blog/baseline-digest-may-2026", "https://www.buildmvpfast.com/blog/web-platform-baseline-2026-new-features-browser-support", "https://web.dev/baseline/2026"],
   "seo-structured-data": ["https://www.suzukikenichi.com/blog/google-deprecated-faq-rich-result-feature/"],
   "wordpress-php": ["https://seory.co.jp/php-version/", "https://wpcenter.jp/blog/php-version-upgrade-wordpress/", "https://make.wordpress.org/core/2026/05/22/php-support-clarification-2026/"],
-  "gsap-animation": ["https://ics.media/entry/220822/"],
+  "gsap-animation": ["https://ics.media/entry/220822/", "https://webkit.org/blog/17101/a-guide-to-scroll-driven-animations-with-just-css/", "https://web-platform-dx.github.io/web-features-explorer/features/scroll-driven-animations/", "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Scroll-driven_animations"],
   "core-web-vitals": ["https://technical-seo.jp/what-is-inp/"],
   "form-a11y": ["https://noveltyinc.jp/media/nextjs-form-accessibility"],
   "eslint-prettier": ["https://qiita.com/DaokFrontier/items/86ebfdb6e6e3fa572326"],
