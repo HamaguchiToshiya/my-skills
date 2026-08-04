@@ -1,12 +1,47 @@
 {
   "_note": "手動運用期(2026-07-05〜07-10)の主要収集URL。チャット運用時代のため網羅的ではない",
-  "css-baseline": ["https://web.dev/blog/baseline-digest-may-2026", "https://www.buildmvpfast.com/blog/web-platform-baseline-2026-new-features-browser-support", "https://web.dev/baseline/2026", "https://web-platform-dx.github.io/web-features-explorer/features/field-sizing/", "https://blog.logrocket.com/css-in-2026/"],
-  "seo-structured-data": ["https://www.suzukikenichi.com/blog/google-deprecated-faq-rich-result-feature/", "https://www.suzukikenichi.com/blog/google-no-longer-supports-structured-data-for-online-events/", "https://growthseed.jp/experts/seo/google-faq-rich-results-support-end/", "https://webtan.impress.co.jp/e/2026/05/22/52663/page/1"],
-  "wordpress-php": ["https://seory.co.jp/php-version/", "https://wpcenter.jp/blog/php-version-upgrade-wordpress/", "https://make.wordpress.org/core/2026/05/22/php-support-clarification-2026/", "https://www.advancedcustomfields.com/blog/acf-6-8-4/", "https://qiita.com/Web_akira/items/54b855e18043050318a1", "https://tane-creative.co.jp/column/6407/"],
-  "gsap-animation": ["https://ics.media/entry/220822/", "https://webkit.org/blog/17101/a-guide-to-scroll-driven-animations-with-just-css/", "https://web-platform-dx.github.io/web-features-explorer/features/scroll-driven-animations/", "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Scroll-driven_animations"],
-  "core-web-vitals": ["https://technical-seo.jp/what-is-inp/"],
-  "form-a11y": ["https://noveltyinc.jp/media/nextjs-form-accessibility"],
-  "eslint-prettier": ["https://qiita.com/DaokFrontier/items/86ebfdb6e6e3fa572326"],
-  "overlay-header": ["https://www.nngroup.com/articles/sticky-headers/", "https://fastcoding.jp/blog/all/ui-ux/scroll-header-css/"],
-  "section-seam": ["https://lovable.dev/guides/scrolling-designs-patterns-when-to-use", "https://withcode.tech/media/webdesign-section-delimitation-summary/"]
+  "css-baseline": [
+    "https://web.dev/blog/baseline-digest-may-2026",
+    "https://www.buildmvpfast.com/blog/web-platform-baseline-2026-new-features-browser-support",
+    "https://web.dev/baseline/2026",
+    "https://web-platform-dx.github.io/web-features-explorer/features/field-sizing/",
+    "https://blog.logrocket.com/css-in-2026/"
+  ],
+  "seo-structured-data": [
+    "https://www.suzukikenichi.com/blog/google-deprecated-faq-rich-result-feature/",
+    "https://www.suzukikenichi.com/blog/google-no-longer-supports-structured-data-for-online-events/",
+    "https://growthseed.jp/experts/seo/google-faq-rich-results-support-end/",
+    "https://webtan.impress.co.jp/e/2026/05/22/52663/page/1"
+  ],
+  "wordpress-php": [
+    "https://seory.co.jp/php-version/",
+    "https://wpcenter.jp/blog/php-version-upgrade-wordpress/",
+    "https://make.wordpress.org/core/2026/05/22/php-support-clarification-2026/",
+    "https://www.advancedcustomfields.com/blog/acf-6-8-4/",
+    "https://qiita.com/Web_akira/items/54b855e18043050318a1",
+    "https://tane-creative.co.jp/column/6407/"
+  ],
+  "gsap-animation": [
+    "https://ics.media/entry/220822/",
+    "https://webkit.org/blog/17101/a-guide-to-scroll-driven-animations-with-just-css/",
+    "https://web-platform-dx.github.io/web-features-explorer/features/scroll-driven-animations/",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Scroll-driven_animations"
+  ],
+  "core-web-vitals": [
+    "https://technical-seo.jp/what-is-inp/"
+  ],
+  "eslint-prettier": [
+    "https://qiita.com/DaokFrontier/items/86ebfdb6e6e3fa572326"
+  ],
+  "overlay-header": [
+    "https://www.nngroup.com/articles/sticky-headers/",
+    "https://fastcoding.jp/blog/all/ui-ux/scroll-header-css/"
+  ],
+  "section-seam": [
+    "https://lovable.dev/guides/scrolling-designs-patterns-when-to-use",
+    "https://withcode.tech/media/webdesign-section-delimitation-summary/"
+  ],
+  "form-ux": [
+    "https://noveltyinc.jp/media/nextjs-form-accessibility"
+  ]
 }
