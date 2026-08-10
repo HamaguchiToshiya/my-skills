@@ -2,6 +2,11 @@
 
 <!-- skill-auto-update-pipeline により生成。適用は毎回ユーザー承認済みの変更のみ -->
 
+### 2026-08-10 form-implementation（提案中 / PR: proposal/2026-08-10）
+- 追加: 「バリデーション方針」に、送信時にエラーが残る場合は最初のエラー項目へフォーカスを移動する旨（キーボード/スクリーンリーダー対応・スマホでの自動スクロール）と、エラーメッセージを該当欄直下にインライン配置する旨を追記
+- 出典: https://www.72technologies.com/blog/form-validation-ux-when-to-show-errors / https://www.staticforms.dev/blog/form-error-messages / https://www.uxpin.com/studio/blog/error-feedback-best-practices-mobile-forms/
+- 承認者: PR レビューにて
+
 ### 2026-07-27 animation-implementation（提案中 / PR: proposal/2026-07-27）
 - 追加: 「実装手段の使い分け」に、CSSスクロール駆動アニメーション（`animation-timeline: scroll()`/`view()`）を単純なスクロール連動の新しい選択肢として追記。Baseline未達（Firefox安定版未対応）のため `coding-standard` のモダンCSS採用ルールに従いフォールバック前提で使う旨、複雑な制御・クロスブラウザ確実性が必要な場合はScrollTriggerを既定とする旨を明記
 - 出典: https://webkit.org/blog/17101/a-guide-to-scroll-driven-animations-with-just-css/ / https://web-platform-dx.github.io/web-features-explorer/features/scroll-driven-animations/
