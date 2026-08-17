@@ -47,5 +47,11 @@
     "https://www.staticforms.dev/blog/form-error-messages",
     "https://www.gyro-n.com/efo/about_efo/",
     "https://www.uxpin.com/studio/blog/error-feedback-best-practices-mobile-forms/"
+  ],
+  "fluid-typography": [
+    "https://design.digital.go.jp/dads/foundations/typography/",
+    "https://css-tricks.com/snippets/css/fluid-typography/",
+    "https://zenn.dev/marumaru/articles/e63f0736eacbd4",
+    "https://coliss.com/articles/build-websites/operation/design/online-visual-type-scale.html"
   ]
 }
