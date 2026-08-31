@@ -5,13 +5,19 @@
     "https://www.buildmvpfast.com/blog/web-platform-baseline-2026-new-features-browser-support",
     "https://web.dev/baseline/2026",
     "https://web-platform-dx.github.io/web-features-explorer/features/field-sizing/",
-    "https://blog.logrocket.com/css-in-2026/"
+    "https://blog.logrocket.com/css-in-2026/",
+    "https://modern-css.com/whats-new/baseline/",
+    "https://www.updateddev.com/p/new-baseline-web-features-in-2026-what-developers-can-use-now",
+    "https://www.dualmedia.com/interop-2026-features/"
   ],
   "seo-structured-data": [
     "https://www.suzukikenichi.com/blog/google-deprecated-faq-rich-result-feature/",
     "https://www.suzukikenichi.com/blog/google-no-longer-supports-structured-data-for-online-events/",
     "https://growthseed.jp/experts/seo/google-faq-rich-results-support-end/",
-    "https://webtan.impress.co.jp/e/2026/05/22/52663/page/1"
+    "https://webtan.impress.co.jp/e/2026/05/22/52663/page/1",
+    "https://reinc.jp/news/web_marketing/6950/",
+    "https://ai-search.techsuite.co.jp/7811/",
+    "https://next-com.biz/7-structure-data-end/"
   ],
   "wordpress-php": [
     "https://seory.co.jp/php-version/",
@@ -19,7 +25,10 @@
     "https://make.wordpress.org/core/2026/05/22/php-support-clarification-2026/",
     "https://www.advancedcustomfields.com/blog/acf-6-8-4/",
     "https://qiita.com/Web_akira/items/54b855e18043050318a1",
-    "https://tane-creative.co.jp/column/6407/"
+    "https://tane-creative.co.jp/column/6407/",
+    "https://www.phpexam.jp/archives/5018",
+    "https://www.var-c.com/wordpress-and-php-versions-535",
+    "https://kusanagi.biz/column/world-wordpress-202606/"
   ],
   "gsap-animation": [
     "https://ics.media/entry/220822/",
@@ -35,11 +44,21 @@
   ],
   "overlay-header": [
     "https://www.nngroup.com/articles/sticky-headers/",
-    "https://fastcoding.jp/blog/all/ui-ux/scroll-header-css/"
+    "https://fastcoding.jp/blog/all/ui-ux/scroll-header-css/",
+    "https://www.parallelhq.com/blog/what-sticky-header",
+    "https://framerwebsites.com/blog/sticky-header-design",
+    "https://www.expressjs.org/how-to-design-a-sticky-header-that-improves-ux-with-css-examples/"
   ],
   "section-seam": [
     "https://lovable.dev/guides/scrolling-designs-patterns-when-to-use",
-    "https://withcode.tech/media/webdesign-section-delimitation-summary/"
+    "https://withcode.tech/media/webdesign-section-delimitation-summary/",
+    "https://www.uxpin.com/studio/blog/4-types-creative-website-scrolling-patterns/",
+    "https://flowndeveloper.com/transitions-in-web-design/",
+    "https://blog.pixelfreestudio.com/how-to-use-motion-design-for-seamless-page-transitions/"
+  ],
+  "grid-layout": [
+    "https://www.techinterview.org/post/3233475080/css-grid-flexbox-modern-layout-2026/",
+    "https://dev.to/balassenthilrrd/master-css-grid-layout-with-real-world-examples-beginner-to-advanced-2e6o"
   ],
   "form-ux": [
     "https://noveltyinc.jp/media/nextjs-form-accessibility",
