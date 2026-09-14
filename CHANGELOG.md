@@ -2,6 +2,11 @@
 
 <!-- skill-auto-update-pipeline により生成。適用は毎回ユーザー承認済みの変更のみ -->
 
+### 2026-09-14 form-implementation（ユーザー直接追記）
+- 追加: 「マークアップの基本」に、入力欄の font-size を 16px 以上にする旨（iOS Safari の自動ズーム回避）。09-14 実行報告の横断メモ「現行記載の有無を要確認」を受け、記載なしを確認して追記
+- 出典: なし（iOS Safari の既定挙動として広く知られる定番知見。一次記事ではなくローカル claudecode-template と同時追記）
+- 承認者: ユーザー
+
 ### 2026-08-10 form-implementation（提案中 / PR: proposal/2026-08-10）
 - 追加: 「バリデーション方針」に、送信時にエラーが残る場合は最初のエラー項目へフォーカスを移動する旨（キーボード/スクリーンリーダー対応・スマホでの自動スクロール）と、エラーメッセージを該当欄直下にインライン配置する旨を追記
 - 出典: https://www.72technologies.com/blog/form-validation-ux-when-to-show-errors / https://www.staticforms.dev/blog/form-error-messages / https://www.uxpin.com/studio/blog/error-feedback-best-practices-mobile-forms/
