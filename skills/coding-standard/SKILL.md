@@ -1,36 +1,32 @@
 ---
 name: coding-standard
-description: Web制作の実案件でHTML/CSS(SCSS)コーディングをする際の統合標準ルール。FLOCSS命名・単位・モダンCSS採用・アクセシビリティ・画像実装をすべて含む。「コーディングして」「カンプ通りに実装して」「HTML/CSSを書いて」「アクセシビリティ対応して」「レスポンシブ画像にして」「画像を軽くして」等の依頼、およびFigma/Photoshopのカンプからの実装、セクション単位の実装依頼で必ず使用する。コーディングに関わる依頼なら明示的に指定されなくても常にこのスキルを適用する。
+description: Web制作の実案件でHTML/CSS(SCSS)コーディングをする際の統合標準ルール。FLOCSS命名・単位・モダンCSS・a11y・画像実装を含む。「コーディングして」「カンプ通りに実装して」「HTML/CSSを書いて」「アクセシビリティ対応して」「レスポンシブ画像にして」「画像を軽くして」等の依頼、カンプからの実装・セクション単位の実装で必ず使う。コーディングに関わる依頼なら指定がなくても常に適用する。既存サイトの改修は existing-site-modification、アニメーションは animation-implementation、JSは js-implementation-standard が担当。
+verified: 2026-08-26
 ---
 
 # コーディング標準（FLOCSS / 単位 / モダンCSS / a11y / 画像）
 
 Web制作の実案件でHTML/CSS(SCSS)を書く際は、常にこのスキル全体をベースルールとして適用する。
 
-## 関連スキルの分担マップ
+## 位置づけと分担
 
-| 内容 | 参照先スキル |
-|---|---|
-| JS実装（vanilla） | `js-implementation-standard` |
-| アニメーション（CSS/GSAP） | `animation-implementation` |
-| フォーム | `form-implementation` |
-| head・meta・OGP・構造化データ | `seo-meta-implementation` |
-| WordPressテーマ化・構築 | `wordpress-development` |
-| Prettier / ESLint / Stylelintの導入・設定 | `code-formatting-lint` |
-| Git運用 | `git-workflow` |
-| 納品前チェック | `pre-delivery-checklist` |
+本スキルは**新規制作の実装ルールの土台**。案件フェーズ全体の分担は **CLAUDE.md の「Skill対応表」** を参照する。
 
-クラス命名（FLOCSS / `is-` / `js-`）・単位・a11y・画像のルールは本スキルが正とし、他スキルはこれを参照する。
+クラス命名（FLOCSS / `is-` / `js-`）・単位・a11y・画像・**Webフォント読み込み・モダンCSS採用方針**のルールは本スキルが正とし、他スキルはこれを参照する。**ただし既存サイトの改修では `existing-site-modification` の大原則（既存の書き方に従う）が優先**。
 
-## 0. 案件開始時に確認すること
+## 0. 着手前に確認すること
 
-依頼文に含まれていなければ、着手前に以下を確認する（不明のまま進める場合は前提を明示して仮置きする）。
+まずCLAUDE.mdの「プロジェクト概要 > コーディング前提」を確認する（以下6項目に対応した記入欄がある）。そこにも依頼文にもなければ、着手前に確認する（不明のまま進める場合は前提を明示して仮置きする）。
 
 1. **対応ブラウザ範囲**: 未確認なら「主要ブラウザ（Chrome / Safari / Firefox / Edge）の最新版〜数バージョン前を前提にする」と一言添えて進める
 2. **remのルート基準**: `html { font-size: 62.5%; }`（1rem = 10px）か、ブラウザ標準16px基準か。案件内で必ず統一する
 3. **ブレークポイント**: 単位（em基準を推奨 / px運用は案件都合がある場合のみ）と値。指定がなければ下記の既定値を使う
 4. **画像素材**: 元データの形式・解像度、WebP/AVIF書き出しが可能か
 5. **SCSSのビルド環境**: 既存のビルド構成（Vite / gulp / VS Code拡張等）があるか。なければ簡易な方法（Live Sass Compiler等）を提案する。いずれもDart Sass前提とし、`@import` は使わず `@use` / `@forward` で書く（`@import` はSass公式で廃止予定のため）
+6. **カンプの参照方法**: Figma案件ではFigma公式スキル `figma-design-to-code` を先に起動してから `get_design_context` で取得する（公式スキル側が必須前置と定めている）。MCPは**デザイン情報の読み取り装置であってコード生成器ではない**——返る参照コード（React+Tailwind）は値と構造の参照としてだけ使い、実装は本スキル（FLOCSS/SCSS）で組み直す。追加ルール:
+   - **Variablesが定義されている値はハードコード禁止**。`get_variable_defs` で変数名ごと取得し、`{category}/{group}/{name}` → `$category-group-name` の写像で `_variable.scss` のトークンに落とす（実装が参照するのはセマンティック層のみ）
+   - **アイコン・画像のasset URLは約7日で失効する**。コミットするコードに残さず、必ずダウンロードして `materials/design/` に保存してから画像実装ルール（§8）に載せる
+   - figma-bridge MCP接続時（Figma側でBridgeプラグイン起動）は同名の `get_design_context` / `get_variable_defs` で代替できる。どちらも使えない場合は書き出し画像を正とする（読み取り専用。Figmaへの書き込みはしない）
 
 ## 1. クラス命名: FLOCSS
 
@@ -53,7 +49,7 @@ BEMのElement/Modifier記法（`__` `--`）を併用する。例: `.p-header__ti
 ```
 scss/
 ├── foundation/
-│   ├── _reset.scss
+│   ├── _reset.scss      ← kiso.css 固定版（下の「リセットCSS」参照）
 │   ├── _base.scss
 │   ├── _variable.scss   ← 色・フォント・余白・duration等のデザイントークン
 │   └── _mixin.scss      ← mq() 等
@@ -71,26 +67,42 @@ scss/
 
 - 色・フォントサイズ・余白・アニメーションのduration/easingなどの値は `foundation/_variable.scss` に集約する。数値をコンポーネントごとにバラバラに書かない
 
+### リセットCSS（kiso.css 固定）
+
+`_reset.scss` はテンプレの `templates/scss/_reset.scss`（[kiso.css](https://github.com/tak-dcxi/kiso.css) の全文コピー。MIT）をそのまま使う。日本語組版（text-autospace / text-spacing-trim / line-break: strict）と打ち消しルールが対で設計されているため、**部分的なつまみ食い・案件内での書き換えはしない**。バージョンは冒頭コメントで固定し、更新はテンプレ側でのみ行う（新案件開始時にGitHubで新版を確認）。
+
+運用上の注意4点:
+
+- kiso は「土台づくり」型で、**button 等フォーム部品の border / padding を剥がさない**。`c-button` 側で `border`（不要なら `border: none`）と `padding` を必ず明示する
+- `scrollbar-gutter: stable` が入るため、Windows ではスクロールバー分の余白が右に常時確保される。フルブリード演出で問題になる場合のみ上書きする（全ルール `:where()` の詳細度ゼロなので1行で勝てる）
+- ルートに `overflow-wrap: anywhere` が入る（セクション7の日本語テキスト対策の前提）
+- `prefers-reduced-motion` の一括抑制は kiso に無い。アニメーション抑制は animation-implementation / `_base.scss` 側の責務
+
 ## 3. ブレークポイント・mq() mixin
 
 sp / tablet / pc の3段階を基本とする。案件指定がなければ以下を既定値とする。
 
 ```scss
 // foundation/_mixin.scss
+@use "sass:map";
+
 $breakpoints: (
   'tablet': 48em,   // 768px相当
   'pc': 64em,       // 1024px相当
 ) !default;
 
 @mixin mq($bp) {
-  @media (min-width: map-get($breakpoints, $bp)) {
+  @media (min-width: map.get($breakpoints, $bp)) {
     @content;
   }
 }
 ```
 
+（`map-get()` 等のグローバル関数は `@import` と同じくDart Sassで廃止予定。モジュール関数 `map.get()` を使う）
+
 - モバイルファースト（min-width基準）で書き、SPのスタイルをベースにtablet/pcで上書きする
 - ブレークポイントの単位は `em` を基本とする（ユーザーのブラウザ文字サイズ変更に追従させるため）
+- 最新デバイスの実寸・推奨ブレイクポイントの確認やブレイクポイントの動作検証には [ScreenSize.net](https://screensize.net/) が使える（Tailwind/Bootstrap既定値との比較、メディアクエリのコピーも可）。ただし切る位置の根拠はデバイス幅ではなくコンテンツの破綻点に置く
 - ホバー演出はタッチデバイスで残留しないよう `@media (hover: hover)` 内に書く
 
 ## 4. 単位の使い分け
@@ -108,21 +120,14 @@ pxによる絶対値指定はブラウザの文字サイズ変更等に追従で
 
 ## 5. モダンCSSの積極採用
 
-古い書き方に固執せず、主要ブラウザで **Baseline "Widely available"**（安定サポート）水準の機能を積極的に使う。
+古い書き方に固執せず、主要ブラウザで **Baseline "Widely available"**（安定サポート）水準の機能を積極的に使う。**`@supports` ガード付き（非対応環境ではガードの外側の既定表示で成立する書き方）なら Baseline "Newly available" も可**。
 
-現時点で安定して使える主な機能（目安）:
-
-- **CSSネスティング**（`&`）/ **`:has()`** / **`:is()` `:where()`**
-- **コンテナクエリ (`@container`)** / **`subgrid`** / **`@layer`**
-- **`clamp() / min() / max()`** / **`color-mix()`** / **`accent-color`**
-- **論理プロパティ**（`margin-inline`, `padding-block` 等）
-- **`aspect-ratio`** / **flex/gridの `gap`**
-- **`scrollbar-width`**（安定）/ **`scrollbar-color`**（2025年12月Baseline入りで比較的新しい。装飾用途に限定し、非対応環境でも破綻しないデフォルト表示を許容する書き方にする。`-webkit-scrollbar` 系の独自実装より標準プロパティを優先）
+採用してよい機能の一覧（機能ごとの目安・注意書き）は `references/modern-css.md` が正。新しめの機能を使う前に必ず読む。
 
 運用ルール:
 
-- 自分（Claude）の知識にはカットオフがあり、対応状況は変化し続ける。**上記リストにない機能を使う時、案件の対応ブラウザ要件が広い時、「もっと新しい書き方は？」と聞かれた時は、必ずWeb検索でcaniuse.com / MDNの最新状況を確認してから採用する**
-- 実験的機能（Baseline "Newly available" で日が浅いもの）は避ける
+- 自分（Claude）の知識にはカットオフがあり、対応状況は変化し続ける。**一覧にない機能を使う時、案件の対応ブラウザ要件が広い時、「もっと新しい書き方は？」と聞かれた時は、必ずWeb検索でcaniuse.com / MDNの最新状況を確認してから採用する**
+- 実験的機能（Baseline "Newly available" で日が浅いもの）は、`@supports` ガードで非対応環境の表示が成立する場合を除いて避ける
 - やや新しめの機能を採用した場合は、コード内コメントか回答内で一言触れる（例: `/* Baseline 2024〜: container queries */`）
 
 ## 6. アクセシビリティ（a11y）
@@ -163,13 +168,14 @@ pxによる絶対値指定はブラウザの文字サイズ変更等に追従で
 ### Webフォント
 
 - 読み込みには `font-display: swap` を指定し、フォント読み込み中もテキストを表示させる（Google Fontsは `display=swap` パラメータ）
-- 日本語Webフォント（Noto Sans JP等）はファイルサイズが大きいため、使用ウェイトを必要最小限に絞る。セルフホストする場合はサブセット化を検討する
+- 日本語Webフォント（Noto Sans JP等）はフル読み込みで数MB級になるため、**サブセット化は必須級**。Google Fonts経由なら自動サブセットされる。セルフホストする場合は形式をwoff2のみとし、`unicode-range` での分割読み込みも有効
+- 使用ウェイトは実際に使う2〜3種に絞る
 - ファーストビューで使うフォントは `<link rel="preload" as="font">` を検討する（多用すると逆効果なので1〜2ファイルまで）
 - フォールバックのフォントスタック（`"Noto Sans JP", sans-serif` 等）を必ず指定する
 
 ### 日本語テキストの崩れ対策
 
-- 長いURL・英単語のはみ出し対策として、本文系要素に `overflow-wrap: break-word` を基本で入れる
+- 長いURL・英単語のはみ出し対策は、リセット層（kiso.css）がルートに `overflow-wrap: anywhere` を一括指定しているのが前提（個別指定は不要）。kiso.css を使わない改修案件では従来どおり本文系要素に `overflow-wrap: break-word` を入れる
 - 見出しの不自然な改行位置には `text-wrap: balance` を検討する（`text-wrap: pretty` や `word-break: auto-phrase` などより新しい機能は、モダンCSS採用ルールに従いWeb検索で対応状況を確認してから使う）
 - 改行位置を制御したい箇所は `<br>` のPC/SP出し分けより、`span` の `display: inline-block` 単位での折り返し制御を優先する
 
@@ -184,7 +190,8 @@ pxによる絶対値指定はブラウザの文字サイズ変更等に追従で
 ```html
 <picture>
   <source srcset="/img/hero.webp" type="image/webp">
-  <img src="/img/hero.jpg" alt="サービス紹介の様子" width="1200" height="800" loading="lazy">
+  <!-- ファーストビューのLCP候補: lazy は付けず fetchpriority="high"。ファーストビュー外なら loading="lazy" decoding="async" -->
+  <img src="/img/hero.jpg" alt="サービス紹介の様子" width="1200" height="800" fetchpriority="high">
 </picture>
 ```
 
@@ -200,6 +207,12 @@ pxによる絶対値指定はブラウザの文字サイズ変更等に追従で
 - `img` には必ず `width`/`height`（実比率）または CSS `aspect-ratio` を指定し、読み込み前にスペースを確保する
 - 背景画像（`background-image`）は装飾用途に限定。意味のある画像は `img`/`picture` を使う（altが必要なため）
 
+### 動画
+
+- 自動再生する動画は `autoplay muted playsinline` の3つを**HTML属性として**書く（`muted` が自動再生の許可条件、`playsinline` が無いと iOS で全画面再生に飛ぶ。JSで後付けすると間に合わないことがある）。check.mjs が欠落を検出する
+- `poster` は必須。ファーストビューの動画なら `poster` が LCP の計測対象になるので、画像と同じく軽量化する
+- ファーストビュー外の動画は `preload="none"`。背景動画の再生失敗時の扱いと reduced-motion 対応は `animation-implementation` の `references/large-motion-patterns.md`「12. 背景動画」が正
+
 ### alt・命名
 
 - 意味のある画像には内容を説明する `alt`。装飾画像は `alt=""`（キーワード詰め込みはしない）
@@ -207,8 +220,8 @@ pxによる絶対値指定はブラウザの文字サイズ変更等に追従で
 
 ## 9. 出力形式
 
-- 通常はHTML + SCSS（フォルダ分割イメージ込み）で提示する。上記ルールは自動的に織り込み、逐一説明しない
-- Claude Code等のプロジェクト環境で作業している場合は、チャット提示ではなくプロジェクトの実ファイルを直接作成・編集する（他スキルの「出力形式」も同様に読み替える）
-- 判断が割れる箇所（ARIA属性の要否等）のみ、実装後に一言補足する
-- ファイル出力が必要な場合のみ、実際にフォルダ構成でファイルを作成する
-- WebP変換等の画像加工が必要な場合は、実装コードを提示した上で変換作業が別途必要な旨を伝える
+- HTML + SCSS はセクション2のフォルダ構成に従って分割する
+- 上記ルールは自動的に織り込み、逐一説明しない。判断が割れる箇所（ARIA属性の要否等）のみ、実装後に一言補足する
+- WebP変換等の画像加工が必要な場合は、実装した上で変換作業が別途必要な旨を伝える。手段の目安: 少数なら [Squoosh](https://squoosh.app/)（ブラウザ完結）、大量ならコマンドラインの `cwebp` / sharp（Node.js）等の一括変換。品質は `-q 75〜85` あたりから目視で調整する
+
+対応レビューエージェント: `coding-reviewer`

@@ -2,6 +2,11 @@
 
 <!-- skill-auto-update-pipeline により生成。適用は毎回ユーザー承認済みの変更のみ -->
 
+### 2026-09-28 全スキル（ローカル claudecode-template からのミラー同期）
+- 同期: skills/ を tools/sync-my-skills.mjs でローカルの正本に合わせた（SKILL.md 19 件更新・references/scripts 16 ファイル追加）。7/10〜7/27 のスナップショットから乖離していた 9/13 棚卸し・9/19 vault 照合の改訂分を反映
+- 出典: なし（ローカルで承認済みの改訂の反映）
+- 承認者: ユーザー
+
 ### 2026-09-14 form-implementation（ユーザー直接追記）
 - 追加: 「マークアップの基本」に、入力欄の font-size を 16px 以上にする旨（iOS Safari の自動ズーム回避）。09-14 実行報告の横断メモ「現行記載の有無を要確認」を受け、記載なしを確認して追記
 - 出典: なし（iOS Safari の既定挙動として広く知られる定番知見。一次記事ではなくローカル claudecode-template と同時追記）
