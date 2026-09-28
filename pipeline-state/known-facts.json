@@ -1,0 +1,87 @@
+{
+  "_note": "watch 型トピックの一次ソースと前回確認値。パイプラインは WebSearch の前にここを更新し、値が変わっていなければ検索を省略してよい（CLAUDE.md 手順1）。value は人間の判断材料であって SKILL.md の記述そのものではない",
+  "topics": {
+    "gsap-animation": [
+      {
+        "key": "gsap.latest",
+        "value": "3.15.0",
+        "source": "npm view gsap version（https://www.npmjs.com/package/gsap）",
+        "checked": "2026-09-28"
+      },
+      {
+        "key": "scroll-driven-animations.baseline",
+        "value": "false（Chrome 115 / Edge 115 / Safari 26。Firefox 未対応）",
+        "source": "https://raw.githubusercontent.com/web-platform-dx/web-features/main/features/scroll-driven-animations.yml.dist",
+        "checked": "2026-09-28"
+      }
+    ],
+    "wordpress-php": [
+      {
+        "key": "wordpress.latest",
+        "value": "7.1.2",
+        "source": "https://api.wordpress.org/core/version-check/1.7/ の offers[0].version",
+        "checked": "2026-09-28"
+      },
+      {
+        "key": "wordpress.php_min",
+        "value": "7.4",
+        "source": "https://api.wordpress.org/core/version-check/1.7/ の offers[0].php_version",
+        "checked": "2026-09-28"
+      },
+      {
+        "key": "php.eol",
+        "value": "8.1 以下は EOL（8.1 は 2025-12-31 終了）",
+        "source": "https://www.php.net/supported-versions.php",
+        "checked": null,
+        "note": "次回巡回で初期化"
+      }
+    ],
+    "eslint-prettier": [
+      {
+        "key": "eslint.latest",
+        "value": "10.11.0",
+        "source": "npm view eslint version",
+        "checked": "2026-09-28"
+      },
+      {
+        "key": "prettier.latest",
+        "value": "3.9.9",
+        "source": "npm view prettier version",
+        "checked": "2026-09-28"
+      }
+    ],
+    "core-web-vitals": [
+      {
+        "key": "cwv.thresholds",
+        "value": "LCP 2.5s / INP 200ms / CLS 0.1",
+        "source": "https://web.dev/articles/vitals",
+        "checked": "2026-09-07",
+        "note": "09-07 実行報告での確認値"
+      }
+    ],
+    "seo-structured-data": [
+      {
+        "key": "faq-rich-result",
+        "value": "2026-05-07 に表示終了（SKILL 反映済み）",
+        "source": "https://developers.google.com/search/updates",
+        "checked": "2026-09-28"
+      },
+      {
+        "key": "structured-data.deprecated",
+        "value": "Book / Course / ClaimReview / EstimatedSalary / LearningVideo / SpecialAnnouncement / Vehicle（2025-06 段階廃止。当スキル非推奨型のため影響なし）",
+        "source": "https://developers.google.com/search/updates",
+        "checked": "2026-09-28"
+      }
+    ],
+    "css-baseline": [
+      {
+        "key": "baseline.widely_latest",
+        "value": null,
+        "source": "https://web.dev/blog/ の Baseline digest（月次）で「Widely available」になった機能",
+        "checked": null,
+        "note": "次回巡回で初期化。Newly available は coding-standard の方針上追わない"
+      }
+    ],
+    "git-workflow": []
+  }
+}

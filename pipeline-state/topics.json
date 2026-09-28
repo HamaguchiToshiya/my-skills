@@ -7,12 +7,12 @@
         "coding-standard"
       ],
       "queries": [
-        "CSS Baseline 2026 newly available features",
-        "CSS 新機能 ブラウザ対応"
+        "CSS Baseline widely available 2026",
+        "web.dev Baseline monthly digest"
       ],
       "frequency_weeks": 4,
       "last_run": "2026-09-28",
-      "note": "2026-08-05 周期2→4週。coding-standardがWidely only方針のためNewly available情報はほぼ破棄になる実績を踏まえ緩和"
+      "note": "2026-08-05 周期2→4週。coding-standardがWidely only方針のためNewly available情報はほぼ破棄になる実績を踏まえ緩和。2026-09-28 クエリを Newly→Widely available 転換狙いに変更（coding-standard は Widely のみ採用のため、Newly の記事は設計上100%破棄になっていた）。一次ソースは known-facts.json"
     },
     {
       "id": "gsap-animation",
@@ -21,11 +21,12 @@
         "animation-implementation"
       ],
       "queries": [
-        "GSAP 更新 バージョン",
+        "GSAP release notes 3.15",
         "Web Animations API 新機能"
       ],
-      "frequency_weeks": 3,
-      "last_run": "2026-09-28"
+      "frequency_weeks": 6,
+      "last_run": "2026-09-28",
+      "note": "2026-09-28 周期3→6週・Q1書き換え（4回連続0件。バージョンは known-facts.json の npm 確認が正）"
     },
     {
       "id": "wordpress-php",
@@ -38,9 +39,9 @@
         "WordPress PHP 最低要件 変更",
         "ACF 仕様変更 アップデート"
       ],
-      "frequency_weeks": 4,
+      "frequency_weeks": 8,
       "last_run": "2026-09-28",
-      "note": "2026-08-05 周期2→4週。2回連続「現行記載と一致」のため緩和。2026-08-31も一致（3回連続）"
+      "note": "2026-08-05 周期2→4週。2回連続「現行記載と一致」のため緩和。2026-08-31も一致（3回連続）。2026-09-28 周期4→8週（4回連続一致。PHP最低要件は known-facts.json の api.wordpress.org 確認が正）"
     },
     {
       "id": "seo-structured-data",
@@ -173,10 +174,10 @@
         "hero section design patterns layout",
         "メインビジュアル レイアウト 事例"
       ],
-      "frequency_weeks": 4,
+      "frequency_weeks": 12,
       "last_run": "2026-09-21",
       "notes_added": 8,
-      "note": "2026-08-05 追加。ポートフォリオ案件のFV検討由来。last_run は初回着火を08-24週にずらすための擬似値"
+      "note": "2026-08-05 追加。ポートフォリオ案件のFV検討由来。last_run は初回着火を08-24週にずらすための擬似値。2026-09-28 周期4→12週（notes_added 8到達の09-21提案を採用。vault FV在庫約30件で飽和）"
     },
     {
       "id": "grid-layout",
