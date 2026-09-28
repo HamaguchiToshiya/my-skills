@@ -1,6 +1,8 @@
 # Skill/Agent 自動更新パイプライン 仕様書
 
 版: v1.0 / 作成日: 2026-07-05
+
+> **注記（2026-09-28）**: 本書は設計時の仕様。X コネクタ・KVS・`/mnt/user-data` 等は実装されておらず、現在の実装手順は `CLAUDE.md`、状態は `pipeline-state/` が正。
 対象読者: この仕様を実装する担当（Claude / Fable 5 等）
 対象システム: Web制作（HTML/CSS/JS/WordPress）業務で使用中の Custom Skills（`coding-standard`, `wordpress-development`, `js-implementation-standard`, `animation-implementation`, `form-implementation`, `seo-meta-implementation`, `code-formatting-lint`, `git-workflow`, `pre-delivery-checklist`, `wp-maintenance-inspection`, `wireframe-proposal`, `coding-standards-doc` 等）
 
