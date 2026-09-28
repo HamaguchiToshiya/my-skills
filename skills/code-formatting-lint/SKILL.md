@@ -1,6 +1,6 @@
 ---
 name: code-formatting-lint
-description: Web制作の実案件で、PrettierやESLintの導入・設定ファイル生成・運用ルールを扱う際に使用する。「Prettier入れて」「ESLint設定して」「フォーマットを自動化したい」「保存時に自動整形したい」「コードの品質チェックをしたい」等の依頼で使う。.prettierrc・.eslintrc等の設定ファイルを新規作成する場合や、coding-standard/js-implementation-standardのルールとフォーマッタ設定を整合させる場合に必ず使用する。
+description: Web制作の実案件で、PrettierやESLintの導入・設定ファイル生成・運用ルールを扱う際に使用する。「Prettier入れて」「ESLint設定して」「フォーマットを自動化したい」「保存時に自動整形したい」「コードの品質チェックをしたい」等の依頼で使う。.prettierrc・eslint.config.js等の設定ファイルを新規作成する場合や、coding-standard/js-implementation-standardのルールとフォーマッタ設定を整合させる場合に必ず使用する。ビルド環境そのもの（Vite・npm初期化・SCSSエントリ）はproject-scaffoldが担当。
 ---
 
 # コードフォーマット・Lint運用ルール（Prettier / ESLint）
@@ -9,11 +9,11 @@ Web制作の実案件で、PrettierやESLintを導入・設定する際は、こ
 
 対象は基本 vanilla JS + WordPress案件（Vue/Reactは対象外。フレームワーク案件の場合はその都度ユーザーに構成を確認する）。
 
-## 0. 導入前に確認すること
+## 0. 着手前に確認すること
 
 依頼文に含まれていなければ、着手前に以下を確認する（不明のまま進める場合は前提を明示して仮置きする）。
 
-1. **Node.js / npmが使える環境か**: 静的サイト制作でもnpm経由の導入が基本。npm未導入なら`npm init -y`から案内する
+1. **Node.js / npmが使える環境か**: 静的サイト制作でもnpm経由の導入が基本。npm未導入なら `project-scaffold` スキルで環境構築してから戻る（npm初期化・scripts名の標準は project-scaffold が正）
 2. **エディタ**: Cursor/VS Code系であれば、保存時の自動フォーマットをエディタ設定側でも案内する
 3. **既存の設定ファイルの有無**: `.prettierrc`や`.eslintrc`が既にある場合は上書きせず、差分を提案する
 
@@ -48,18 +48,18 @@ vendor/
 
 ## 2. ESLintの設定方針
 
-- インストール（Flat Config系。ESLint v9以降が現在の標準。下記コード例で使うパッケージも一緒に入れる）:
+- インストール（Flat Config。ESLint v9 は 2026-08 に EOL、現行は v10 系〔2026-09-19 確認〕。新規案件は最新メジャーを入れる。下記コード例で使うパッケージも一緒に入れる）:
   ```
   npm install --save-dev eslint @eslint/js globals eslint-config-prettier
   ```
-- 設定ファイルは `eslint.config.js`（Flat Config）で作成する。ESLintのバージョンによって書式が変わるため、**導入時点でnpmのインストールバージョンを確認し、v8以前の`.eslintrc`形式が必要な場合はその旨を明示してから合わせる**
+- 設定ファイルは `eslint.config.js`（Flat Config）で作成する。ESLintのバージョンによって書式が変わるため、**導入時点でnpmのインストールバージョンを確認する**。既存案件が v8 以前の `.eslintrc` 形式のままなら、合わせる前にその旨を明示し、移行するなら `npx @eslint/migrate-config .eslintrc.json` を起点にする
 - vanilla JS + WordPress案件向けの既定ルール方針:
   - `no-unused-vars`, `no-undef` はerror
   - WordPressのグローバル変数（`wp`, `jQuery`, `ajaxurl`等）を使う場合は `globals` パッケージまたは環境設定でグローバル宣言し、`no-undef`の誤検知を防ぐ
   - フォーマット関連のルール（インデント・クォート等）はPrettierに任せ、ESLint側では重複させない（`eslint-config-prettier`を併用し、競合するルールを無効化する）
 
 ```js
-// eslint.config.js の例（Flat Config / ESLint v9系）
+// eslint.config.js の例（Flat Config / ESLint v9・v10 共通）
 import js from '@eslint/js';
 import globals from 'globals';
 import eslintConfigPrettier from 'eslint-config-prettier';
@@ -90,7 +90,7 @@ export default [
 ];
 ```
 
-- 上記コード例は目安であり、**ESLint/プラグインのバージョンによってAPIが変わることがあるため、案件で実際にインストールされているバージョンに応じて必ずWeb検索で最新の設定方法を確認してから確定させる**
+- 上記コード例は目安であり、**ESLint/プラグインのバージョンによってAPIが変わることがあるため、案件で実際にインストールされているバージョンに応じて必ず `ctx7 docs`（ライブラリ設定は ctx7 が正。rules/context7.md）で該当バージョンの設定方法を確認してから確定させる**
 
 ## 3. Stylelint（SCSSの検査・任意）
 
@@ -98,6 +98,7 @@ PrettierはSCSSを「整形」するだけで「検査」はしない。SCSS主�
 
 - インストール: `npm install --save-dev stylelint stylelint-config-standard-scss`
 - `coding-standard`のFLOCSS命名をクラスセレクタのパターン検査で機械的に担保できるのが導入の主なメリット
+- **命名規則の正は `coding-standard`**。命名ルールを改訂したら、下記 `selector-class-pattern` の正規表現も同時に追随させる（ここだけ古い正規表現が残るとlintが正を否定し始める）
 
 ```json
 // .stylelintrc.json の例
@@ -105,14 +106,14 @@ PrettierはSCSSを「整形」するだけで「検査」はしない。SCSS主�
   "extends": ["stylelint-config-standard-scss"],
   "rules": {
     "selector-class-pattern": [
-      "^(l|c|p|u|is|js)-[a-z0-9]+(-[a-z0-9]+)*(__[a-z0-9]+(-[a-z0-9]+)*)?(--[a-z0-9]+(-[a-z0-9]+)*)?$",
-      { "message": "FLOCSS命名（l-/c-/p-/u- + BEM）に従ってください（coding-standard参照）" }
+      "^(l|c|p|u|is)-[a-z0-9]+(-[a-z0-9]+)*(__[a-z0-9]+(-[a-z0-9]+)*)?(--[a-z0-9]+(-[a-z0-9]+)*)?$",
+      { "message": "FLOCSS命名（l-/c-/p-/u- + BEM、状態は is-）に従ってください。js- はCSSセレクタに使わない（coding-standard参照）" }
     ]
   }
 }
 ```
 
-- Prettierとの競合ルールは近年のstylelint-config-standardでは基本的に排除済みだが、警告が競合する場合は`stylelint-config-prettier-scss`等の併用をWeb検索で確認する
+- Prettierとの競合ルールはStylelint 15以降のstylelint-config-standardでは排除済み（整形系ルールが削除された）。競合回避用の追加パッケージは不要
 
 ## 4. package.jsonへのスクリプト追加
 
@@ -124,10 +125,14 @@ PrettierはSCSSを「整形」するだけで「検査」はしない。SCSS主�
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "lint:css": "stylelint \"**/*.scss\"",
+    "lint:css:fix": "stylelint \"**/*.scss\" --fix"
   }
 }
 ```
+
+- `lint:css` / `lint:css:fix` はStylelintを導入した場合（3節）のみ追加する
 
 ## 5. エディタ連携（保存時の自動整形）
 
@@ -163,4 +168,4 @@ Cursor/VS Code系での`.vscode/settings.json`の例も、必要に応じて併�
 
 - 設定ファイル（`.prettierrc.json`, `.prettierignore`, `eslint.config.js`, package.jsonへの追記内容）を実際に作成する
 - 案件で採用しているルールが既定値と異なる場合（例: セミコロンなし運用、シングルクォートでなくダブルクォート運用等）は、その場で確認してから値を調整する
-- Prettier/ESLintそれぞれのバージョンに依存する設定書式（特にESLintのFlat Config移行まわり）は情報が変化しやすいため、確信が持てない場合は必ず一言断ってからWeb検索で確認する
+- Prettier/ESLintそれぞれのバージョンに依存する設定書式（特にESLintのFlat Config移行まわり）は情報が変化しやすいため、確信が持てない場合は必ず一言断ってから `ctx7 docs` で該当バージョンのドキュメントを確認する（ライブラリ設定は ctx7、制度・EOL・Googleポリシー等は Web検索、という使い分け）

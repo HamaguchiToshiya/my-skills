@@ -23,36 +23,36 @@ description: Webサイトの表示速度改善・Core Web Vitals対策で使用�
 
 LCP要素はほとんどの場合**ファーストビューのメイン画像**か見出しテキスト。PageSpeed Insightsが「LCP要素」を教えてくれるので必ず確認する。
 
-- **LCP画像に `loading="lazy"` を付けない**（逆効果の定番ミス）。代わりに `fetchpriority="high"` を付ける
-- LCP画像を `<link rel="preload" as="image">` で先読みする。レスポンシブ画像なら `imagesrcset` / `imagesizes` も指定
-- 画像はAVIF/WebPで書き出し、表示サイズに合わせてリサイズ（詳細はcoding-standardの画像実装ルール）
+**LCP分解（画像を軽くしても直らないときの切り分け）**: LCP は ①TTFB ②Resource load delay（リソースの発見が遅い）③Resource load duration（転送が重い）④Element render delay（描画が遅れる）の4つに分けて見る（web.dev の目安は ①③が各約40%、②④が各10%未満）。太りやすいのは②で、LCP素材をCSS背景・JS挿入・`loading="lazy"` にすると発見が遅れる。`<video>` の `poster` も LCP の計測対象になる。
+
+- 画像実装の基本ルール（**LCP画像に `loading="lazy"` を付けない**・`fetchpriority="high"`・AVIF/WebP書き出し・サイズ指定）は `coding-standard` の画像実装ルールが正。まずそこからの逸脱（LCP画像へのlazy付与が定番ミス）がないか確認する
+- 速度観点の追加施策: LCP画像を `<link rel="preload" as="image">` で先読みする。レスポンシブ画像なら `imagesrcset` / `imagesizes` も指定
 - CSS背景画像（`background-image`）のヒーローは先読みが効きにくいので、可能なら `<img>` に変更する
 - サーバー応答（TTFB）が遅い場合: WordPressならキャッシュ導入（項目5）、静的サイトならサーバー自体の性能を疑う
 
 ## 2. CLS改善
 
 - 画像・動画・iframeに `width` / `height` 属性（または `aspect-ratio`）を必ず指定して領域を確保する
-- Webフォント読み込みによる文字のガタつき: `font-display: swap` + フォールバックフォントのサイズ調整（`size-adjust`。対応ブラウザが限られるため一言添える）
+- Webフォント読み込みによる文字のガタつき: `font-display: swap` + フォールバックフォントのサイズ調整（`size-adjust`）
 - 広告・埋め込み・遅延読み込みコンテンツは、入る領域を `min-height` で先に確保する
 - ファーストビューに後から挿入されるバナー・通知類は上に押し込まず `position: fixed` 等でオーバーレイにする
 
 ## 3. INP改善
 
 - 長いJS処理がメインスレッドを塞いでいないか。「診断 > メインスレッド作業の最小化」を確認
-- サードパーティスクリプト（計測タグ、チャット、SNS埋め込み）が主犯のことが多い。**本当に必要か**をクライアントに確認し、不要なら外す・必要なら遅延読み込み
+- サードパーティスクリプト（チャット、SNS埋め込み、外部ウィジェット）が主犯のことが多い。**本当に必要か**をクライアントに確認し、不要なら外す・必要なら遅延読み込み
+- 計測タグ（GA4/GTM）は速度改善の対象外。理由と扱いは `analytics-setup` が正
 - スクロール連動アニメーションの負荷はanimation-implementationのパフォーマンスルール（transform/opacity限定、`will-change`の節度ある使用）に従う
 
 ## 4. 読み込みリソースの削減
 
 ### フォント
 
-- 日本語Webフォントは**サブセット化が必須級**（Noto Sans JPフル読み込みは数MB級になる）。Google Fonts経由なら自動サブセットされるが、`display=swap` パラメータを付ける
-- 自前ホストする場合はwoff2のみでよい。`unicode-range` での分割読み込みも有効
-- ウェイトは実際に使う2〜3種に絞る
+- Webフォントの実装ルール（`font-display: swap`・サブセット化・woff2のみ・ウェイト2〜3種）は **`coding-standard` のWebフォント節が正**。まずそこからの逸脱（フルウェイト読み込み・サブセット化漏れ・`display=swap` 忘れ）がないか確認する
 
 ### CSS / JS
 
-- `<script>` は原則 `defer` を付けてbody末尾ではなくheadに置く。`type="module"` は標準でdefer相当なのでそのままheadでよい（js-implementation-standardの読み込みルールと整合）
+- `<script>` は原則 `defer` を付けてbody末尾ではなくheadに置く（`type="module"` は標準でdefer相当。**scriptの読み込み方の正は `js-implementation-standard`**）。**WordPress案件は例外**: テンプレートに `<script>` を直書きせず、`wordpress-development` のenqueueルール（フッター読み込み）に従う
 - 未使用CSS/JSの削除。「カバレッジ」（DevTools）で使用率を確認できる
 - クリティカルCSSのインライン化はスコアへの効果は大きいが運用コストも高いため、要件（スコア目標）がある案件のみ提案する
 
@@ -71,7 +71,7 @@ LCP要素はほとんどの場合**ファーストビューのメイン画像**�
 
 ## 出力形式
 
-- レポートやURLをもらった場合: 指摘事項を**効果の大きい順**に、「原因 → 対策 → 期待効果」のセットで提示する
+- レポートやURLをもらった段階の改善提案は: 指摘事項を**効果の大きい順**に、「原因 → 対策 → 期待効果」のセットで提示する
 - 改善提案には工数感（すぐできる / 半日 / 構造変更が必要）を添え、クライアント説明に使える形にする
 - 対応後は再計測を促し、改善前後のスコアを比較して報告できるようにする
 - 確認できない項目（サーバー性能等）は推測と明示する
