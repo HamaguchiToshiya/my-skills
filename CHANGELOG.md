@@ -4,6 +4,7 @@
 
 ### 2026-09-28 全スキル（ローカル claudecode-template からのミラー同期）
 - 同期: skills/ を tools/sync-my-skills.mjs でローカルの正本に合わせた（SKILL.md 19 件更新・references/scripts 16 ファイル追加）。7/10〜7/27 のスナップショットから乖離していた 9/13 棚卸し・9/19 vault 照合の改訂分を反映
+- 削除: topics.json が参照していない 6 スキル（analytics-setup / coding-standards-doc / design-verification / existing-site-modification / hearing-estimate / site-deployment）をコーパスから外した。正本はローカルにあり、監視したくなったら topics.json に紐付けて再同期すれば戻る
 - 出典: なし（ローカルで承認済みの改訂の反映）
 - 承認者: ユーザー
 
