@@ -55,8 +55,8 @@
         "key": "cwv.thresholds",
         "value": "LCP 2.5s / INP 200ms / CLS 0.1",
         "source": "https://web.dev/articles/vitals",
-        "checked": "2026-09-07",
-        "note": "09-07 実行報告での確認値"
+        "checked": "2026-10-05",
+        "note": "2026-10-05 一次ソース再確認、変化なし"
       }
     ],
     "seo-structured-data": [

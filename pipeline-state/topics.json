@@ -93,7 +93,7 @@
         "Core Web Vitals 指標 変更"
       ],
       "frequency_weeks": 4,
-      "last_run": "2026-09-07"
+      "last_run": "2026-10-05"
     },
     {
       "id": "overlay-header",
@@ -209,8 +209,8 @@
         "ボタン フォーム フィードバック 演出 デザイン"
       ],
       "frequency_weeks": 4,
-      "last_run": "2026-09-07",
-      "notes_added": 4,
+      "last_run": "2026-10-05",
+      "notes_added": 7,
       "note": "2026-08-05 追加。vault ux 28枚と薄い。last_run は初回着火を09-07週にずらすための擬似値（未来日で意図的）"
     }
   ]
