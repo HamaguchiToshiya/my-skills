@@ -71,14 +71,22 @@
     "https://fastcoding.jp/blog/all/ui-ux/scroll-header-css/",
     "https://www.parallelhq.com/blog/what-sticky-header",
     "https://framerwebsites.com/blog/sticky-header-design",
-    "https://www.expressjs.org/how-to-design-a-sticky-header-that-improves-ux-with-css-examples/"
+    "https://www.expressjs.org/how-to-design-a-sticky-header-that-improves-ux-with-css-examples/",
+    "https://theplusaddons.com/docs/sticky-header-color-on-scroll/",
+    "https://freefrontend.com/css-sticky-header/",
+    "https://sites.lsa.umich.edu/wordpress-accessibility/cover-block/",
+    "https://webdesign.washu.edu/?p=107"
   ],
   "section-seam": [
     "https://lovable.dev/guides/scrolling-designs-patterns-when-to-use",
     "https://withcode.tech/media/webdesign-section-delimitation-summary/",
     "https://www.uxpin.com/studio/blog/4-types-creative-website-scrolling-patterns/",
     "https://flowndeveloper.com/transitions-in-web-design/",
-    "https://blog.pixelfreestudio.com/how-to-use-motion-design-for-seamless-page-transitions/"
+    "https://blog.pixelfreestudio.com/how-to-use-motion-design-for-seamless-page-transitions/",
+    "https://anthonyhobday.com/sideprojects/visualtechniques/techniques/background/split-level-background-transition",
+    "https://codyhouse.co/ds/components/info/section-divider",
+    "https://uicookies.com/css-divider/",
+    "https://help.onepage.io/en/articles/5306064-separate-sections-design-the-divider-between-sections"
   ],
   "grid-layout": [
     "https://www.techinterview.org/post/3233475080/css-grid-flexbox-modern-layout-2026/",
@@ -132,5 +140,8 @@
     "https://onca.co.jp/column/design/p8510/",
     "https://www.perfectafternoon.com/2025/hero-section-design/",
     "https://www.landy-ai.com/blog/hero-section-design"
+  ],
+  "git-workflow": [
+    "https://devplaybook.cc/blog/git-workflow-best-practices-2024/"
   ]
 }
